@@ -22,9 +22,8 @@ export default function NewPost() {
   const FormSubmitHandler = (data) => {
     // console.log(data)
     axios
-      .post("https://twitter-clone-6i0p.onrender.com/users/login", data)
+      .post("https://twitter-clone-6i0p.onrender.com/users", data)
       .then((res) => {
-        // console.log(res)
         // console.log("ADDED");
         // console.log("res",res)
         setCurrentUser(data.username)
@@ -32,12 +31,8 @@ export default function NewPost() {
         navigate("/home");
       })
       .catch((err) => {
-        // console.log("err",err.response.data);
-        if (err.response.data=="User not found!"){
-          toast.error("Username not found")
-        }else if(err.response.data=="Wrong Password"){
-          toast.error("Wrong Password")
-        }
+        console.log("err",err);
+        toast.error("Username already exists")
       });
   };
   return (
@@ -45,7 +40,7 @@ export default function NewPost() {
       <ToastContainer />
       <form className="form" onSubmit={handleSubmit(FormSubmitHandler)}>
         <div style={{ fontWeight: "700", fontSize: "1.5vmax" }}>
-          Welcome Back..!
+          Your text-based Social Media Journey starts right here..!
         </div>
         {/* <Text as="i" fontSize="1vmax">Enter the following details!</Text> */}
         <FormControl>
@@ -84,7 +79,7 @@ export default function NewPost() {
           <p className="err">{errors.password?.message}</p>
         </FormControl>
         <Button type="submit" colorScheme="red">
-          Login
+          Create Account
         </Button>
       </form>
     </div>

@@ -5,8 +5,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
-  background-color: black;
+  /* color: white; */
+  /* background-color: black; */
 
 }
 
@@ -30,6 +30,7 @@
   flex-wrap: wrap;
   min-width: 100vw;
   min-height: 100vh;
+  color: white;
 }
 
 .landing-main {
@@ -159,6 +160,43 @@ footer li:hover {
   justify-content: center;
 }
 
+.signup-parent {
+  flex: 1;
+  padding: 5vmin 10vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: aliceblue; */
+  /* color: rgb(198, 232, 255); */
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70vw;
+  padding: 2vmin;
+  border-radius: 10px;
+  background-color: #1D9CEB;
+  gap: 5vmin;
+  color: white;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+.err{
+  color: rgb(255, 0, 0);
+  font-size: 1.5vmin;
+  font-weight: 600;
+  margin-top: 0.5qvmin;
+}
+
+.home-parent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  flex: 1;
+}
+
 @media screen and (max-width:1000px) {
   .landing-main{
     flex-direction: column;
@@ -205,4 +243,5 @@ footer li:hover {
   .top-heading2{
     font-size: 23px;
   }
+
 }
