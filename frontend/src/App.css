@@ -67,21 +67,20 @@
 }
 
 .btn {
-  width: 300px;
+  width: 25vmax;
   height: 40px;
   font-size: 15px;
   font-weight: 900;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .create-acc {
   background-color: #1d9bf0;
   transition: all 0.3s;
   user-select: none;
-  cursor: pointer;
-
 }
 
 .create-acc:hover {
@@ -171,13 +170,15 @@ footer li:hover {
   /* color: rgb(198, 232, 255); */
 }
 .form{
-  display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 70vw;
+  /* width: 40vw; */
   padding: 2vmin;
-  border-radius: 10px;
-  background-color: #1D9CEB;
+  border-radius: 14px;
+  padding: 4vw;
+  /* background-color: #1D9CEB; */
+  border: 1px solid #71767b;
   gap: 5vmin;
   color: white;
   font-family: 'IBM Plex Sans', sans-serif;
@@ -197,12 +198,34 @@ footer li:hover {
   flex: 1;
 }
 
+#login-twitter {
+  width: 1.3em;
+  margin-left: 1vh;
+}
+
+.sign-in-form, .sign-up-form {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4vh;
+}
+
+.sign-in-up {
+  color: black;
+  background-color: #EFF3f4;
+  transition: all 0.3s;
+}
+
+.sign-in-up:hover {
+  background-color: rgb(215, 219, 220);
+}
+
 @media screen and (max-width:1000px) {
   .landing-main{
     flex-direction: column;
     justify-content: center;
     height: 80vh;
-    margin: auto;
+    /* margin: auto; */
   }
 
   .landing-parent {
@@ -213,7 +236,7 @@ footer li:hover {
 
   .landing-left {
     justify-content: start;
-    width:80vw;
+    width:100vw;
   }
 
   .r-top {
@@ -222,7 +245,7 @@ footer li:hover {
 
   .landing-right{
     height: 70vh;
-    width: 80vw;
+    width: 100vw;
     padding-left: 0;
     justify-content: space-around;
   }
