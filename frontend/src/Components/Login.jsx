@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { AppContext } from "./Context";
+import twitterLogo from '../assets/twitter-logo.svg'
 
 export default function NewPost() {
   const {currentUser,setCurrentUser} = useContext(AppContext)
@@ -43,31 +44,31 @@ export default function NewPost() {
   return (
     <div className="signup-parent">
       <ToastContainer />
-      <form className="form" onSubmit={handleSubmit(FormSubmitHandler)}>
-        <div style={{ fontWeight: "700", fontSize: "1.5vmax" }}>
-          Welcome Back..!
+      <form className="form flex" onSubmit={handleSubmit(FormSubmitHandler)}>
+        <div style={{ fontWeight: "700", fontSize: "1.5rem" }} className="flex">
+          Sign in to <img src={twitterLogo} id="login-twitter"/>
         </div>
         {/* <Text as="i" fontSize="1vmax">Enter the following details!</Text> */}
+        <div className="sign-in-form flex">
         <FormControl>
-          <FormLabel fontSize="1vmax" as="i">
-            Username
-          </FormLabel>
           <Input
             type="text"
             borderColor="white"
+            placeholder="Username"
+            style={{width: "25vmax", height: "50px"}}
             {...register("username", {
               required: "Username is required",
             })}
-          />
+            />
           <p className="err">{errors.username?.message}</p>
         </FormControl>
         <FormControl>
-          <FormLabel fontSize="1vmax" as="i">
-            Password
-          </FormLabel>
           <Input
             type="password"
             name="password"
+            placeholder="Password"
+            style={{width: "25vmax", height: "50px"}}
+
             {...register("password", {
               required: "Password Required",
               minLength: {
@@ -77,15 +78,17 @@ export default function NewPost() {
               pattern: {
                 value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/,
                 message:
-                  "Password Not Valid (Use Special Characters & Numbers)",
+                "Password Not Valid (Use Special Characters & Numbers)",
               },
             })}
-          />
+            />
           <p className="err">{errors.password?.message}</p>
         </FormControl>
-        <Button type="submit" colorScheme="red">
-          Login
-        </Button>
+        
+        <div className="sign-in-up btn flex">
+          Sign In
+        </div>
+        </div>
       </form>
     </div>
   );

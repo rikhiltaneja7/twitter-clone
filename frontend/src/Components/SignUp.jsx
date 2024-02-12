@@ -38,18 +38,18 @@ export default function NewPost() {
   return (
     <div className="signup-parent">
       <ToastContainer />
-      <form className="form" onSubmit={handleSubmit(FormSubmitHandler)}>
-        <div style={{ fontWeight: "700", fontSize: "1.5vmax" }}>
-          Your text-based Social Media Journey starts right here..!
+      <form className="form flex" onSubmit={handleSubmit(FormSubmitHandler)}>
+        <div style={{ fontWeight: "700", fontSize: "1.5rem" }}>
+          Your text-based Social Media Journey starts here..!
         </div>
         {/* <Text as="i" fontSize="1vmax">Enter the following details!</Text> */}
+        <div className="sign-up-form flex">
         <FormControl>
-          <FormLabel fontSize="1vmax" as="i">
-            Username
-          </FormLabel>
           <Input
             type="text"
             borderColor="white"
+            placeholder="Username"
+            style={{width: "25vmax", height: "50px"}}
             {...register("username", {
               required: "Username is required",
             })}
@@ -57,12 +57,11 @@ export default function NewPost() {
           <p className="err">{errors.username?.message}</p>
         </FormControl>
         <FormControl>
-          <FormLabel fontSize="1vmax" as="i">
-            Password
-          </FormLabel>
           <Input
             type="password"
             name="password"
+            placeholder="Password"
+            style={{width: "25vmax", height: "50px"}}
             {...register("password", {
               required: "Password Required",
               minLength: {
@@ -78,9 +77,10 @@ export default function NewPost() {
           />
           <p className="err">{errors.password?.message}</p>
         </FormControl>
-        <Button type="submit" colorScheme="red">
+        <div className="sign-in-up btn flex">
           Create Account
-        </Button>
+        </div>
+        </div>
       </form>
     </div>
   );
