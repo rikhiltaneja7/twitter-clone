@@ -5,8 +5,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
-  background-color: black;
+  /* color: white; */
+  /* background-color: black; */
 
 }
 
@@ -30,6 +30,7 @@
   flex-wrap: wrap;
   min-width: 100vw;
   min-height: 100vh;
+  color: white;
 }
 
 .landing-main {
@@ -66,21 +67,20 @@
 }
 
 .btn {
-  width: 300px;
+  width: 25vmax;
   height: 40px;
   font-size: 15px;
   font-weight: 900;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .create-acc {
   background-color: #1d9bf0;
   transition: all 0.3s;
   user-select: none;
-  cursor: pointer;
-
 }
 
 .create-acc:hover {
@@ -159,12 +159,73 @@ footer li:hover {
   justify-content: center;
 }
 
+.signup-parent {
+  flex: 1;
+  padding: 5vmin 10vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: aliceblue; */
+  /* color: rgb(198, 232, 255); */
+}
+.form{
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* width: 40vw; */
+  padding: 2vmin;
+  border-radius: 14px;
+  padding: 4vw;
+  /* background-color: #1D9CEB; */
+  border: 1px solid #71767b;
+  gap: 5vmin;
+  color: white;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+.err{
+  color: rgb(255, 0, 0);
+  font-size: 1.5vmin;
+  font-weight: 600;
+  margin-top: 0.5qvmin;
+}
+
+.home-parent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  flex: 1;
+}
+
+#login-twitter {
+  width: 1.3em;
+  margin-left: 1vh;
+}
+
+.sign-in-form, .sign-up-form {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4vh;
+}
+
+.sign-in-up {
+  color: black;
+  background-color: #EFF3f4;
+  transition: all 0.3s;
+}
+
+.sign-in-up:hover {
+  background-color: rgb(215, 219, 220);
+}
+
 @media screen and (max-width:1000px) {
   .landing-main{
     flex-direction: column;
     justify-content: center;
     height: 80vh;
-    margin: auto;
+    /* margin: auto; */
   }
 
   .landing-parent {
@@ -175,7 +236,7 @@ footer li:hover {
 
   .landing-left {
     justify-content: start;
-    width:80vw;
+    width:100vw;
   }
 
   .r-top {
@@ -184,7 +245,7 @@ footer li:hover {
 
   .landing-right{
     height: 70vh;
-    width: 80vw;
+    width: 100vw;
     padding-left: 0;
     justify-content: space-around;
   }
@@ -205,4 +266,5 @@ footer li:hover {
   .top-heading2{
     font-size: 23px;
   }
+
 }

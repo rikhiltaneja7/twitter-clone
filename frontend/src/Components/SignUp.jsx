@@ -7,7 +7,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { AppContext } from "./Context";
-import twitterLogo from '../assets/twitter-logo.svg'
 
 export default function NewPost() {
   const {currentUser,setCurrentUser} = useContext(AppContext)
@@ -23,9 +22,8 @@ export default function NewPost() {
   const FormSubmitHandler = (data) => {
     // console.log(data)
     axios
-      .post("https://twitter-clone-6i0p.onrender.com/users/login", data)
+      .post("https://twitter-clone-6i0p.onrender.com/users", data)
       .then((res) => {
-        // console.log(res)
         // console.log("ADDED");
         // console.log("res",res)
         setCurrentUser(data.username)
@@ -33,23 +31,19 @@ export default function NewPost() {
         navigate("/home");
       })
       .catch((err) => {
-        // console.log("err",err.response.data);
-        if (err.response.data=="User not found!"){
-          toast.error("Username not found")
-        }else if(err.response.data=="Wrong Password"){
-          toast.error("Wrong Password")
-        }
+        console.log("err",err);
+        toast.error("Username already exists")
       });
   };
   return (
     <div className="signup-parent">
       <ToastContainer />
       <form className="form flex" onSubmit={handleSubmit(FormSubmitHandler)}>
-        <div style={{ fontWeight: "700", fontSize: "1.5rem" }} className="flex">
-          Sign in to <img src={twitterLogo} id="login-twitter"/>
+        <div style={{ fontWeight: "700", fontSize: "1.5rem" }}>
+          Your text-based Social Media Journey starts here..!
         </div>
         {/* <Text as="i" fontSize="1vmax">Enter the following details!</Text> */}
-        <div className="sign-in-form flex">
+        <div className="sign-up-form flex">
         <FormControl>
           <Input
             type="text"
@@ -59,7 +53,7 @@ export default function NewPost() {
             {...register("username", {
               required: "Username is required",
             })}
-            />
+          />
           <p className="err">{errors.username?.message}</p>
         </FormControl>
         <FormControl>
@@ -68,7 +62,6 @@ export default function NewPost() {
             name="password"
             placeholder="Password"
             style={{width: "25vmax", height: "50px"}}
-
             {...register("password", {
               required: "Password Required",
               minLength: {
@@ -78,15 +71,14 @@ export default function NewPost() {
               pattern: {
                 value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/,
                 message:
-                "Password Not Valid (Use Special Characters & Numbers)",
+                  "Password Not Valid (Use Special Characters & Numbers)",
               },
             })}
-            />
+          />
           <p className="err">{errors.password?.message}</p>
         </FormControl>
-        
         <div className="sign-in-up btn flex">
-          Sign In
+          Create Account
         </div>
         </div>
       </form>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import twitterLogo from '../assets/twitter-logo.svg'
 
 export default function Landing() {
@@ -19,9 +20,11 @@ export default function Landing() {
           </div>
         </div>
         <div className="r-mid flex">
-          <div className="create-acc btn flex">
-            Create Account
-          </div>
+          <Link to="/signup">
+            <div className="create-acc btn flex">
+              Create Account
+            </div>
+          </Link>
           <div className="terms">
           By signing up, you agree to the <span id='terms-text'>Terms of Service</span> and <span id='terms-text'>Privacy Policy</span>, including <span id='terms-text'>Cookie Use.</span>
           </div>
@@ -30,9 +33,11 @@ export default function Landing() {
           <div className="existing-acc">
             Already have an account?
           </div>
-          <div className="sign-in btn flex">
-            Sign in
-          </div>
+          <Link to="/login">
+            <div className="sign-in btn flex">
+              Sign in
+            </div>
+          </Link>
         </div>
       </div>
       </div>

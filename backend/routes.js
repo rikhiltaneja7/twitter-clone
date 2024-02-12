@@ -2,25 +2,46 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const User = require("./Models/User");
+const wrapAsync = require("./utils/wrapAsync");
+const ExpressError = require("./utils/ExpressError");
 const userRouter = express.Router();
 
 userRouter.use(express.json());
 
-userRouter.get("/", async(req, res) => {
-    let resData
-    await User.find().then((data)=>{
-        resData = data
-    })
-    res.send(resData)
-});
+userRouter.get("/", wrapAsync(async (req, res) => {
+    const resData = await User.find();
+    res.send(resData);
+}));
 
-userRouter.post("/",async(req,res)=>{
-    let postData = new User(req.body)
-    await postData.save().then(()=>{
-        res.send("ADDED")   
-    }).catch((err)=>{
-        res.status(500).send(err)
-    })
-})
+userRouter.post("/", wrapAsync(async (req, res) => {
+    if (Object.keys(req.body).length === 0){
+        throw new ExpressError(400,"Send Valid Data in Body")
+    }
+    const postData = new User(req.body);
+    await postData.save();
+    res.send("ADDED");
+}));
+
+userRouter.post("/login", wrapAsync(async(req,res)=>{
+    // console.log(req.body)
+    let {username,password} = req.body
+    let result = await User.find({username:username})
+    if (result.length==0){
+        throw new ExpressError(404,"User not found!")
+    }else{
+        let savedPassword = result[0].password
+        if (savedPassword!=password){
+            throw new ExpressError(401,"Wrong Password")
+        }else{
+            res.send("LOGGED IN")
+        }
+    }
+}))
+
+userRouter.use((err, req, res, next) => {
+    // console.log(err);
+    let {status=500,message="Some Error Occured"} = err
+    res.status(status).send(message);
+});
 
 module.exports = userRouter;
