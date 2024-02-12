@@ -33,9 +33,11 @@ export default function Landing() {
           <div className="existing-acc">
             Already have an account?
           </div>
-          <div className="sign-in btn flex">
-            Sign in
-          </div>
+          <Link to="/login">
+            <div className="sign-in btn flex">
+              Sign in
+            </div>
+          </Link>
         </div>
       </div>
       </div>
