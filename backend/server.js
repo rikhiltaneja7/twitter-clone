@@ -3,7 +3,8 @@ const app = express();
 require("dotenv").config();
 const mongoose = require("mongoose");
 const userRouter = require("./routes");
-const cors = require("cors")
+const cors = require("cors");
+const postRouter = require("./routes");
 
 async function main() {
   await mongoose.connect(process.env.MONGO_LINK);
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/users",userRouter)
+app.use("/posts", postRouter)
 
 app.listen(8080, () => {
   console.log("App listening on port 8080");

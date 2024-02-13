@@ -77,9 +77,9 @@ export default function NewPost() {
           />
           <p className="err">{errors.password?.message}</p>
         </FormControl>
-        <div className="sign-in-up btn flex">
-          Create Account
-        </div>
+        <button className="sign-in-up btn flex" type="submit">
+  Create Account
+</button>
         </div>
       </form>
     </div>

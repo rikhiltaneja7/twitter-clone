@@ -187,7 +187,7 @@ footer li:hover {
   color: rgb(255, 0, 0);
   font-size: 1.5vmin;
   font-weight: 600;
-  margin-top: 0.5qvmin;
+  margin-top: 0.5vmin;
 }
 
 .home-parent{
@@ -218,6 +218,13 @@ footer li:hover {
 
 .sign-in-up:hover {
   background-color: rgb(215, 219, 220);
+}
+
+.posts-parent {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5vh;
 }
 
 @media screen and (max-width:1000px) {
