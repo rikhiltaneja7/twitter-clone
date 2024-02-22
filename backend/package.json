@@ -6,6 +6,9 @@
     "mongoose": "^8.1.1"
   },
   "name": "backend",
+  "engines": {
+    "node": "18.x"
+  },
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {},
