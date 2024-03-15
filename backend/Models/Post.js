@@ -1,12 +1,5 @@
 const mongoose = require("mongoose");
 
-const formatDate = ()=> {
-    const date = new Date();
-    const options = { weekday: 'short', year: '2-digit', month: 'short', day: '2-digit', hour: 'numeric', minute: 'numeric' };
-    const formattedDate = date.toLocaleString('en-US', options);
-    return formattedDate;
-};
-
 function formatDate() {
     const date = new Date();
     const options = { 
@@ -22,17 +15,16 @@ function formatDate() {
     return formattedDate;
 };
 
-
 const postSchema = new mongoose.Schema({
-    description:{
+    description: {
         type: String,
         required: true
     },
-    user:{
-        type: mongoose.Schema.Types.ObjectId,
+    user: {
+        type: String,
         ref: "User"
     },
-    likes:[{
+    likes: [{
         type: mongoose.Schema.Types.ObjectId
     }],
     comments: [{
@@ -52,5 +44,5 @@ const postSchema = new mongoose.Schema({
     }
 });
 
-const Post = mongoose.model("Post",userSchema);
+const Post = mongoose.model("Post", postSchema);
 module.exports = Post;
