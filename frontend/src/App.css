@@ -227,6 +227,19 @@ footer li:hover {
   margin: 5vh;
 }
 
+.tweet-area {
+  margin: 4vw;
+  gap: 2vh;
+  flex-wrap: wrap;
+}
+
+.post {
+  width: auto;
+  padding: 1vw;
+  background-color: #1d9bf0;
+  align-self: center;
+}
+
 @media screen and (max-width:1000px) {
   .landing-main{
     flex-direction: column;
